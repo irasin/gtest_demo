@@ -3,7 +3,22 @@ project(gtest_demo
         VERSION 0.1.0
         LANGUAGES CXX C) 
 
+include(CheckCXXCompilerFlag)
+if ("cxx_std_20" IN_LIST CMAKE_CXX_COMPILE_FEATURES)
+    message(STATUS "use CXX_STD_20")
+    set(CMAKE_CXX_STANDARD 20)
+elseif("cxx_std_17" IN_LIST CMAKE_CXX_COMPILE_FEATURES)
+    message(STATUS "use CXX_STD_17")
+    set(CMAKE_CXX_STANDARD 17)
+else()
+    message(STATUS "use CXX_STD_14")
+    set(CMAKE_CXX_STANDARD 14)
+endif()
+
+set(CMAKE_C_STANDARD 99)
+
 option(ENABLE_GTEST "Enable gtest" ON)
+
 
 
 set(REPO_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
