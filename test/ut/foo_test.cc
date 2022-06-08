@@ -3,6 +3,9 @@
 #include <gflags/gflags.h>
 #include <gtest/gtest.h>
 
+DEFINE_string(name, "world", "name");
+DEFINE_int32(age, 2, "age");
+
 TEST(FooTest, Foo) {
   cc::Foo foo;
   EXPECT_EQ("", foo.name());
@@ -23,13 +26,8 @@ TEST(AddTest, Add) {
   EXPECT_EQ(3.0, cc::add<double>(1.0, 2.0));
 }
 
-DEFINE_string(name, "", "name");
-DEFINE_int32(age, 0, "age");
-
-int main(int argc, char* argv[]) {
-  testing::InitGoogleTest(&argc, argv);
-  gflags::ParseCommandLineFlags(&argc, &argv, true);
-  std::cout << "name: " << FLAGS_name << std::endl;
-  std::cout << "age: " << FLAGS_age << std::endl;
-  return RUN_ALL_TESTS();
+TEST(FooTest, FooWithFlags) {
+  cc::Foo foo(FLAGS_name);
+  EXPECT_EQ(FLAGS_name, foo.name());
+  EXPECT_EQ(FLAGS_age * 2, cc::add<int>(FLAGS_age, FLAGS_age));
 }
