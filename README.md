@@ -2,11 +2,16 @@
 use git submodule to add gtest into this project
 
 
-## on linux
-```
-vi build.sh
+## to run shared lirbary test
 
-:set ff?
-:set ff=unix
-:wq
+
+### on linux
+```cpp
+export LD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:${path to so}
+```
+
+### on mac
+
+```cpp
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:${path to dylib}
 ```
