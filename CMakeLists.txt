@@ -19,8 +19,6 @@ set(CMAKE_C_STANDARD 99)
 
 option(ENABLE_TEST "Enable test" ON)
 
-
-
 set(REPO_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(SRC_DIR ${REPO_ROOT_DIR}/src)
 set(INC_DIR ${REPO_ROOT_DIR}/include)

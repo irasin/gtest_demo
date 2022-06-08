@@ -6,7 +6,7 @@ file(GLOB_RECURSE ut_test_src CONFIGURE_DEPENDS "${TEST_DIR}/ut/*.cc")
 
 
 set(TEST_SRCS ${ut_test_src})
-set(TEST_LIB foo foo_static)
+set(TEST_LIB foo_static)
 
 
 
