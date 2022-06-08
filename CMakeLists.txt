@@ -38,8 +38,5 @@ set(CMAKE_INSTALL_BINDIR ${CMAKE_INSTALL_PREFIX}/bin)
 
 add_subdirectory(${SRC_DIR})
 
-
-if (ENABLE_GTEST) 
-    include(${CMAKE_DIR}/cc_gtest.cmake)
-endif()
-
+include(${CMAKE_DIR}/cc_gflags.cmake)
+include(${CMAKE_DIR}/cc_gtest.cmake)

@@ -5,7 +5,7 @@ function(add_gtest)
     add_executable(${UT_TARGET})
     target_sources(${UT_TARGET} PRIVATE ${UT_SRC})
     target_include_directories(${UT_TARGET} PRIVATE ${UT_INC})
-    target_link_libraries(${UT_TARGET} PRIVATE ${UT_LIB} gtest gtest_main)
+    target_link_libraries(${UT_TARGET} PRIVATE ${UT_LIB} gtest gtest_main gflags)
     
     install(
         TARGETS ${UT_TARGET}
@@ -28,4 +28,11 @@ add_gtest(
     SRC ${TEST_DIR}/foo_test.cc
     LIB foo
     INC ${INC_DIR}
+)
+
+
+add_gtest(
+    TARGET glfags_test
+    SRC ${TEST_DIR}/gflags_test.cc
+    LIB gflags
 )
