@@ -8,7 +8,7 @@ make
 make install
 
 
-cd build/output/bin
+cd output/bin
 chmod +x *
 # ./foo_test_shared.exe
 ./foo_test_static.exe
