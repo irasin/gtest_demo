@@ -1,4 +1,6 @@
+add_subdirectory(${THIRD_PARTY_DIR}/gflags EXCLUDE_FROM_ALL)
 add_subdirectory(${THIRD_PARTY_DIR}/gtest EXCLUDE_FROM_ALL)
+
 
 function(add_gtest)
     cmake_parse_arguments(UT "" "TARGET" "SRC;INC;LIB" ${ARGV})
@@ -16,23 +18,3 @@ function(add_gtest)
 endfunction()
 
 
-
-add_gtest(
-    TARGET foo_test_static
-    SRC ${TEST_DIR}/foo_test.cc
-    LIB foo_static
-)
-
-add_gtest(
-    TARGET foo_test_shared
-    SRC ${TEST_DIR}/foo_test.cc
-    LIB foo
-    INC ${INC_DIR}
-)
-
-
-add_gtest(
-    TARGET glfags_test
-    SRC ${TEST_DIR}/gflags_test.cc
-    LIB gflags
-)

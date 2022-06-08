@@ -17,7 +17,7 @@ endif()
 
 set(CMAKE_C_STANDARD 99)
 
-option(ENABLE_GTEST "Enable gtest" ON)
+option(ENABLE_TEST "Enable test" ON)
 
 
 
@@ -36,7 +36,11 @@ set(CMAKE_INSTALL_DOCDIR ${CMAKE_INSTALL_PREFIX}/doc)
 set(CMAKE_INSTALL_BINDIR ${CMAKE_INSTALL_PREFIX}/bin)
 
 
+include(${CMAKE_DIR}/common.cmake)
+
 add_subdirectory(${SRC_DIR})
 
-include(${CMAKE_DIR}/cc_gflags.cmake)
-include(${CMAKE_DIR}/cc_gtest.cmake)
+if (ENABLE_TEST)
+    add_subdirectory(${TEST_DIR})
+endif()
+
