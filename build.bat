@@ -1,5 +1,5 @@
 @echo off
-
+git submodule update --init
 if exist build (
     echo "build folder already exists, removing..."
     rd /s/q build
